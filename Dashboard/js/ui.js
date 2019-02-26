@@ -9,8 +9,8 @@ const setupTable = (data) => {
             const td = `<tr>
                             <td>${detail.tourName}</td>
                             <td>${detail.days}</td>
-                            <td>${detail.tourType}</td>
-                            <td>${detail.state}</td>
+                            <td>${detail.selectedTourType}</td>
+                            <td>${detail.selectedState}</td>
                             <td>${detail.price}</td>
                             <td>
                                 <div class="btn-group">

@@ -1,7 +1,9 @@
 const loggedOutLink = document.querySelectorAll('#out');
 const loggedInLink = document.querySelectorAll('#in')
 //const adminLink = document.querySelectorAll('#admin')
-
+const cy = (data) => {
+  alert(data)
+}
 const setupUi = (user) => {
 
   if (user) {
@@ -28,7 +30,8 @@ const setupTour = (data) => {
     //console.log(data)
     let html = "";
     data.forEach(docs => {
-      //console.log(docs.id);
+      let id = docs.id
+      //console.log(id)
       const detail = docs.data();
       // console.log(detail)
       let description = ""
@@ -63,7 +66,9 @@ const setupTour = (data) => {
 											<i class="fa fa-star"></i>
 											<i class="fa fa-star-o"></i>
 										</div>
-										<a rel="nofollow" href="#" class="button product_type_tour_phys add_to_cart_button" onclick="cy(${detail.tourName})">Read more</a>
+                    <a rel="nofollow" href="#"
+                     class="button product_type_tour_phys add_to_cart_button" 
+                     onclick="func(${id})">Read more</a>
 									</div>
 								</div></a>
               </li>`;
@@ -77,9 +82,4 @@ const setupTour = (data) => {
     tour.innerHTML = '<h5 class="center-align"> No Tour Added</h5'
   }
 
-}
-
-
-const cy = (data) => {
-  alert(data)
 }

@@ -1,24 +1,3 @@
-//ssdocument.querySelector("#imageURL").src = "";
-// let selectedFile
-// const uploadButton = document.querySelector("#uploadButton");
-// uploadButton.addEventListener('click', () => {
-//     const fileInput = document.querySelector("#fileInput");
-//     fileInput.click();
-// })
-// fileInput.addEventListener("change", (e) => {
-
-//     if (!e.target.files.length) return;
-//     let image = e.target.files[0];
-//     selectedFile = image;
-//     let reader = new FileReader();
-//     reader.readAsDataURL(image);
-//     reader.onload = e => {
-//         document.querySelector("#imageURL").src = e.target.result;
-//     }
-// })
-
-//const file = document.getElementById('files')
-
 let featuredImageUrl;
 const upload_widget = document.querySelector("#featuredImage");
 
@@ -89,28 +68,28 @@ locationForm.addEventListener('submit', (e) => {
     const selectedTourType = tourType.options[tourType.selectedIndex].text;
     const selectedState = state.options[state.selectedIndex].text;
 
-
-    db.collection('tourLocation').doc().set({
-        tourName,
-        days,
-        price,
-        location,
-        decription,
-        selectedState,
-        selectedTourType,
-        featuredImageUrl,
-        extraImageUrl: {
-            image0: extraImageUrl0,
-            image1: extraImageUrl1,
-            image2: extraImageUrl2,
-            image3: extraImageUrl3,
-            image4: extraImageUrl4,
-            image5: extraImageUrl5
-        }
-    })
+    let id = new Date() + "tourLocation" + new Date()
+    db.collection('tourLocation').doc(id).set({
+            tourName,
+            days,
+            price,
+            location,
+            decription,
+            selectedState,
+            selectedTourType,
+            featuredImageUrl,
+            extraImageUrl: {
+                image0: extraImageUrl0,
+                image1: extraImageUrl1,
+                image2: extraImageUrl2,
+                image3: extraImageUrl3,
+                image4: extraImageUrl4,
+                image5: extraImageUrl5
+            }
+        })
         .then(() => {
-        console.log("published")
-    })
+            window.location.href = "./allLocation.html  ";
+        })
 
 
 })
