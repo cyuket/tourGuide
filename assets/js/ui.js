@@ -38,7 +38,7 @@ const setupTour = (data) => {
       let newDescription
 
       const li = `<li class="item-tour col-md-4 col-sm-6 product">
-								<a href="#"><div class="item_border item-product" onclick="">
+								<a href="./single-tour.html?${id}"><div class="item_border item-product">
 									<div class="post_images">
 									
 											<span class="price">$ ${detail.price}</span>
@@ -66,9 +66,10 @@ const setupTour = (data) => {
 											<i class="fa fa-star"></i>
 											<i class="fa fa-star-o"></i>
 										</div>
-                    <a rel="nofollow" href="#"
+                    <a rel = "nofollow"
+                    href = "./single-tour.html?${id}"
                      class="button product_type_tour_phys add_to_cart_button" 
-                     onclick="func(${id})">Read more</a>
+                     >Read more</a>
 									</div>
 								</div></a>
               </li>`;
