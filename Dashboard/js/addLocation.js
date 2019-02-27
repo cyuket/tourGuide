@@ -64,12 +64,11 @@ locationForm.addEventListener('submit', (e) => {
     const days = locationForm['tDays'].value;
     const price = locationForm['tprice'].value;
     const location = locationForm['tLocation'].value;
-    const decription = locationForm['x'].value
+    const decription = locationForm['cDescription'].value
     const selectedTourType = tourType.options[tourType.selectedIndex].text;
-    const selectedState = state.options[state.selectedIndex].text;
+    const selectedState = state.options[state.selectedIndex].text
 
-    let id = new Date() + "tourLocation" + new Date()
-    db.collection('tourLocation').doc(id).set({
+    db.collection('tourLocation').doc().set({
             tourName,
             days,
             price,
