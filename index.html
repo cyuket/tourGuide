@@ -199,16 +199,16 @@
                 <div class="slider-tour-booking">
                     <div class="container">
                         <div class="travel-booking-search hotel-booking-search travel-booking-style_1">
-                            <form name="hb-search-form" action="http://html.physcode.com/travel/tours.html" id="tourBookingForm">
+                            <form name="hb-search-form" id="tourBookingForm">
                                 <ul class="hb-form-table">
                                     <li class="hb-form-field">
                                         <div class="hb-form-field-input hb_input_field">
-                                            <input type="text" name="name_tour" value="" placeholder="Tour name">
+                                            <input type="text" name="name_tour" id="name_tour" placeholder="Tour name">
                                         </div>
                                     </li>
                                     <li class="hb-form-field">
                                         <div class="hb-form-field-input hb_input_field">
-                                            <select name="tourtax[tour_phys]">
+                                            <select name="tourtax[tour_phys]" id="tourType">
                                                 <option value="0">Tour Type</option>
                                                 <option value="escorted-tour">Escorted Tour</option>
                                                 <option value="rail-tour">Rail Tour</option>
@@ -220,7 +220,7 @@
                                     </li>
                                     <li class="hb-form-field">
                                         <div class="hb-form-field-input hb_input_field">
-                                            <select name="tourtax[pa_destination]">
+                                            <select name="tourtax[pa_destination]" id="destination">
                                                 <option value="0">Destination</option>
                                                 <option value="china">Brazil</option>
                                                 <option value="canada">Canada</option>
@@ -230,7 +230,7 @@
                                                 <option value="usa">USA</option>
                                             </select></div>
                                     </li>
-                                    <li class="hb-form-field">
+                                    <!-- <li class="hb-form-field">
                                         <div class="hb-form-field-input hb_input_field">
                                             <select name="tourtax[pa_month]">
                                                 <option value="0">Month</option>
@@ -247,8 +247,8 @@
                                                 <option value="november">November</option>
                                                 <option value="december">December</option>
                                             </select></div>
-                                    </li>
-                                    <li class="hb-submit">
+                                    </li> -->
+                                    <li cZzzzzzlass="hb-submit">
                                         <button type="submit">Search Tours</button>
                                     </li>
                                 </ul>
@@ -335,8 +335,9 @@
                         </div>
                         <div class="row wrapper-tours-slider">
                             <div class="tours-type-slider list_content" data-dots="true" data-nav="true"
-                                data-responsive='{"0":{"items":1}, "480":{"items":2}, "768":{"items":2}, "992":{"items":3}, "1200":{"items":4}}'>
-                                <div class="item-tour">
+                                data-responsive='{"0":{"items":1}, "480":{"items":2}, "768":{"items":2}, "992":{"items":3}, "1200":{"items":4}}'
+                                id="popularTours">
+                                <!-- <div class="item-tour">
                                     <div class="item_border">
                                         <div class="item_content">
                                             <div class="post_images">
@@ -571,7 +572,7 @@
                                             <div class="clear"></div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -868,7 +869,7 @@
                 <!-- <div class="section-white padding-top-6x padding-bottom-6x">
                     <div class="container">
                         <div class="row"> -->
-                            <!-- <div class="col-sm-12">
+                <!-- <div class="col-sm-12">
                                 <div class="shortcode_title title-center title-decoration-bottom-center">
                                     <h2 class="title_primary">Tours Reviews</h2>
                                     <span class="line_after_title"></span>
@@ -936,7 +937,7 @@
                                     </div>
                                 </div>
                             </div> -->
-                            <!-- <div class="col-sm-8">
+                <!-- <div class="col-sm-8">
 							<div class="shortcode_title title-center title-decoration-bottom-center">
 								<h2 class="title_primary">Latest Post</h2>
 								<span class="line_after_title"></span>
@@ -986,7 +987,7 @@
 								</div>
 							</div>
 						</div> -->
-                        <!-- </div>
+                <!-- </div>
                     </div>
                 </div> -->
             </div>
@@ -1079,15 +1080,20 @@
             </div>
         </div>
     </div>
-    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
-
-    <script type='text/javascript' src='assets/js/config.js'></script>
-    <script type='text/javascript' src='assets/js/auth.js'></script>
-    <script type='text/javascript' src='assets/js/ui.js'></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase-functions.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase-storage.js"></script>
     <script type='text/javascript' src='assets/js/jquery.min.js'></script>
     <script type='text/javascript' src='assets/js/bootstrap.min.js'></script>
     <script type='text/javascript' src='assets/js/vendors.js'></script>
-    <script type='text/javascript' src='assets/js/owl.carousel.min.js'></script>
+    <!-- <script type='text/javascript'  src='assets/js/owl.carousel.min.js'></script> -->
+    <script type='text/javascript' src='assets/js/config.js'></script>
+    <script type='text/javascript' src='assets/js/ui.js'></script>
+    <script type='text/javascript' src='assets/js/auth.js'></script>
+
+
     <script type="text/javascript" src="assets/js/jquery.mb-comingsoon.min.js"></script>
     <script type="text/javascript" src="assets/js/waypoints.min.js"></script>
     <script type="text/javascript" src="assets/js/jquery.counterup.min.js"></script>

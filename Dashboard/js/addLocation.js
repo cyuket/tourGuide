@@ -87,7 +87,7 @@ locationForm.addEventListener('submit', (e) => {
             }
         })
         .then(() => {
-            window.location.href = "./allLocation.html  ";
+            window.location.href = "./allLocation.html";
         })
 
 
