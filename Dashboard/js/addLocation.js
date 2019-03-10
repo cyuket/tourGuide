@@ -11,6 +11,12 @@ const auth = firebase.auth();
 const db = firebase.firestore();
 const functions = firebase.functions();
 const storage = firebase.storage();
+  };
+  firebase.initializeApp(config);
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+  const functions = firebase.functions();
+  const storage = firebase.storage();
 
 let featuredImageUrl;
 const upload_widget = document.querySelector("#featuredImage");
