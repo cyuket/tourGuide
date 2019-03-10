@@ -1,3 +1,17 @@
+var config = {
+    apiKey: "AIzaSyCypRAWS-lk8taWYUUgvNDWCdxabyRclIc",
+    authDomain: "travel-28.firebaseapp.com",
+    databaseURL: "https://travel-28.firebaseio.com",
+    projectId: "travel-28",
+    storageBucket: "travel-28.appspot.com",
+    messagingSenderId: "304303818510"
+};
+firebase.initializeApp(config);
+const auth = firebase.auth();
+const db = firebase.firestore();
+const functions = firebase.functions();
+const storage = firebase.storage();
+
 let featuredImageUrl;
 const upload_widget = document.querySelector("#featuredImage");
 
@@ -64,9 +78,10 @@ locationForm.addEventListener('submit', (e) => {
     const days = locationForm['tDays'].value;
     const price = locationForm['tprice'].value;
     const location = locationForm['tLocation'].value;
-    const decription = locationForm['cDescription'].value
+    const decription = document.querySelector('#editor1').value
     const selectedTourType = tourType.options[tourType.selectedIndex].text;
     const selectedState = state.options[state.selectedIndex].text
+    console.log(decription)
 
     db.collection('tourLocation').doc().set({
             tourName,
