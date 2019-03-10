@@ -23,7 +23,7 @@
 									<div class="post_images">
 									
 											<span class="price">$ ${detail.price}</span>
-											<img width="430" height="305" src=${detail.featuredImageUrl} alt="Discover Brazil" title="Discover Brazil">
+											<img src=${detail.featuredImageUrl} alt="Discover Brazil" style= "height: 150px; title="Discover Brazil">
 									
 										<div class="group-icon">
 											<span href="tours.html" data-toggle="tooltip" data-placement="top" title="" class="frist" data-original-title="Escorted Tour"><i class="flaticon-airplane-4"></i></span>

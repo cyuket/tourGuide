@@ -1,7 +1,22 @@
- db.collection('tourLocation').onSnapshot(snapshot => {
-     //  console.log(snapshot.docs.id);
-     let data = snapshot.docs;
-     setupTour(data);
+ let tourTypeSession = sessionStorage.getItem("tourType");
+ let tourNameSession = sessionStorage.getItem("tourName");
+let destinationSession = sessionStorage.getItem("tourDestination");
+ console.log(tourNameSession)
+db.collection('tourLocation').where("tourName", "==", tourNameSession).onSnapshot(snapshot => {
+
+    //console.log(snapshot.docs.id);
+    let data = snapshot.docs;
+    let length = data.length
+    if (length > 0) {
+      console.log(data)
+       setupTour(data)
+    } else {
+        db.collection('tourLocation').where("selectedState", "==", destinationSession).onSnapshot(snapshot => { 
+            let data = snapshot.docs;
+            setupTour(data)
+        })
+    }
+    ;
  }, err => {
      console.log(err.message)
  });
