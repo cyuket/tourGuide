@@ -22,13 +22,10 @@
 								<a href="./single-tour.html?${id}"><div class="item_border item-product">
 									<div class="post_images">
 									
-											<span class="price">$ ${detail.price}</span>
+											<span class="price">₦ ${detail.price}</span>
 											<img src=${detail.featuredImageUrl} alt="Discover Brazil" style= "height: 150px; title="Discover Brazil">
 									
-										<div class="group-icon">
-											<span href="tours.html" data-toggle="tooltip" data-placement="top" title="" class="frist" data-original-title="Escorted Tour"><i class="flaticon-airplane-4"></i></span>
-											<span href="tours.html" data-toggle="tooltip" data-placement="top" title="" data-original-title="Rail Tour"><i class="flaticon-cart-1"></i></span>
-										</div>
+										
 									</div>
 									<div class="wrapper_content">
 										<div class="post_title"><h4>

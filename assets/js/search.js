@@ -1,7 +1,7 @@
  let tourTypeSession = sessionStorage.getItem("tourType");
  let tourNameSession = sessionStorage.getItem("tourName");
 let destinationSession = sessionStorage.getItem("tourDestination");
- console.log(tourNameSession)
+//  console.log(tourNameSession)
 db.collection('tourLocation').where("tourName", "==", tourNameSession).onSnapshot(snapshot => {
 
     //console.log(snapshot.docs.id);

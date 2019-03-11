@@ -6387,6 +6387,7 @@ input[type=radio]:checked:before {
 
 .travel_tour #reviews #comment {
 	height: 110px;
+	overflow-y:scroll;
 }
 
 .comment-respond .comment-form {

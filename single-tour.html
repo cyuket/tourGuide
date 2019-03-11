@@ -280,7 +280,7 @@
 											<a href="#tab-location_tab" role="tab" data-toggle="tab">Location</a>
 										</li>
 										<li class="reviews_tab" role="presentation">
-											<a href="#tab-reviews" role="tab" data-toggle="tab">Reviews (1)</a>
+											<a href="#tab-reviews" role="tab" data-toggle="tab" id="reviewNo">Reviews</a>
 										</li>
 									</ul>
 									<div class="tab-content">
@@ -288,87 +288,20 @@
 										<div role="tabpanel" class="tab-pane single-tour-tabs-panel single-tour-tabs-panel--description panel entry-content wc-tab active"
 										 id="tab-description">
 
-											<!-- <p>Mattis interdum nunc massa. Velit. Nonummy penatibus luctus. Aliquam. Massa aptent senectus elementum
-												taciti.Id sodales morbi felis eu mus auctor ullamcorper. Litora. In nostra tempus, habitant. Nam tristique.</p>
-											<p>Felis venenatis metus placerat taciti malesuada ultricies bibendum nunc hymenaeos orci erat mollis
-												pretium ligula ligulamus pellentesque urna. Sagittis bibendum justo congue facilisi. Aliquam potenti
-												sagittis etiam facilisis vehicula. Id.</p>
 
-											<p>Ridiculus sociis dui eu vivamus tempor justo diam aliquam. Ipsum nunc purus, pede sed placerat sit
-												habitasse potenti eleifend magna mus sociosqu hymenaeos cras metus mi donec tortor nisi leo dignissim
-												turpis sit torquent.</p>
-											<p>Potenti mattis ad mollis eleifend Phasellus adipiscing ullamcorper interdum faucibus orci litora ornare
-												aliquam. Ligula feugiat scelerisque. Molestie. Facilisi hac.</p> -->
 										</div>
-										<!-- <div role="tabpanel" class="tab-pane single-tour-tabs-panel single-tour-tabs-panel--itinerary_tab panel entry-content wc-tab"
-										 id="tab-itinerary_tab">
-											<div class="interary-item">
-												<p><span class="icon-left">1</span></p>
-												<div class="item_content">
-													<h2><strong>Day 1: Departure</strong></h2>
-													<p>Ornare proin neque tempus cubilia cubilia blandit netus.<br>
-														Maecenas massa. Fermentum.</p>
-													<ul>
-														<li>Pretium vitae tempus sem enim enim.</li>
-														<li>Tempus, leo, taciti augue aliquam hendrerit.</li>
-														<li>Accumsan pharetra eros justo augue posuere felis elit cras montes fames.</li>
-														<li>Vulputate dictumst egestas etiam dictum varius.</li>
-													</ul>
-												</div>
-											</div>
-											<div class="interary-item">
-												<p><span class="icon-left">2</span></p>
-												<div class="item_content">
-													<h2><strong>Day 2</strong></h2>
-													<p>Tortor elementum egestas metus potenti habitasse tempus natoque senectus commodo rutrum quisque
-														fermentum. Nisi velit primis dapibus odio consequat facilisi sollicitudin porta nulla tellus sagittis
-														platea tempor sed parturient convallis consectetuer Vulputate curae; pharetra.</p>
-												</div>
-											</div>
-											<div class="interary-item">
-												<p><span class="icon-left">3</span></p>
-												<div class="item_content">
-													<h2><strong>Day 3</strong></h2>
-													<p>Fusce sagittis viverra lorem proin porttitor conubia risus vivamus. Mollis. Luctus curabitur porta nibh
-														penatibus aliquet nec conubia magnis semper, sem feugiat scelerisque molestie. Nibh proin dapibus
-														phasellus lacus. Facilisi.</p>
-												</div>
-											</div>
-											<div class="interary-item">
-												<p><span class="icon-left">4</span></p>
-												<div class="item_content">
-													<h2><strong>Day 4</strong></h2>
-													<p>Pretium consequat, facilisis sem in malesuada sodales et ipsum proin eleifend tincidunt, urna morbi
-														metus quisque. Lacinia habitasse ridiculus sapien platea a cursus hendrerit tempor facilisi orci at
-														tempor, senectus.</p>
-												</div>
-											</div>
-											<div class="interary-item">
-												<p><span class="icon-left">5</span></p>
-												<div class="item_content">
-													<h2><strong>Day 5</strong></h2>
-													<p>Egestas maecenas hac nullam integer at. Lacinia habitasse ridiculus sapien platea a cursus hendrerit
-														tempor facilisi orci at tempor, senectus.</p>
-												</div>
-											</div>
-											<div class="interary-item">
-												<p><span class="icon-left">6</span></p>
-												<div class="item_content">
-													<h2><strong>Day 6: Return</strong></h2>
-												</div>
-											</div>
-										</div> -->
+
 										<div role="tabpanel" class="tab-pane single-tour-tabs-panel single-tour-tabs-panel--location_tab panel entry-content wc-tab"
 										 id="tab-location_tab">
 											<div class="wrapper-gmap" id="mapDisplay">
-												<!-- <div id="googleMapCanvas" class="google-map" data-lat="50.893577" data-long="-1.393483" data-address="European Way, Southampton, United Kingdom"></div> -->
-											<div class="google-map"></div>
+
 											</div>
 										</div>
 										<div role="tabpanel" class="tab-pane single-tour-tabs-panel single-tour-tabs-panel--reviews panel entry-content wc-tab"
 										 id="tab-reviews">
-											<div id="reviews" class="travel_tour-Reviews">
-												<div id="comments">
+											<div id="reviews" class="travel_tour-Reviews" style="height: 450px; overflow-y:scroll">
+												<div class="review-content"></div>
+												<!-- <div id="comments">
 													<h2 class="travel_tour-Reviews-title">1 review for
 														<span>Kiwiana Panorama</span></h2>
 													<ol class="commentlist">
@@ -393,12 +326,12 @@
 															</div>
 														</li>
 													</ol>
-												</div>
+												</div> -->
 												<div id="review_form_wrapper">
 													<div id="review_form">
 														<div id="respond" class="comment-respond">
 															<h3 id="reply-title" class="comment-reply-title">Add a review</h3>
-															<form action="#" method="post" id="commentform" class="comment-form" novalidate="">
+															<form id="commentForm" class="comment-form" novalidate="">
 																<p class="comment-notes">
 																	<span id="email-notes">Your email address will not be published.</span> Required fields are marked
 																	<span class="required">*</span></p>
@@ -409,15 +342,6 @@
 																<p class="comment-form-email"><label for="email">Email
 																		<span class="required">*</span></label>
 																	<input id="email" name="email" type="email" value="" size="30" required="">
-																</p>
-																<p class="comment-form-rating">
-																	<label>Your Rating</label>
-																</p>
-																<p class="stars">
-																	<span>
-																		<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-																		 class="fa fa-star"></i>
-																	</span>
 																</p>
 
 																<p class="comment-form-comment">
@@ -439,124 +363,8 @@
 								</div>
 								<div class="related tours">
 									<h2>Related Tours</h2>
-									<ul class="tours products wrapper-tours-slider">
-										<li class="item-tour col-md-4 col-sm-6 product">
-											<div class="item_border item-product">
-												<div class="post_images">
-													<a href="single-tour.html">
-														<span class="price">$93.00</span>
-														<img width="430" height="305" src="images/tour/430x305/tour-1.jpg" alt="Discover Brazil" title="Discover Brazil">
-													</a>
-													<div class="group-icon">
-														<a href="tours.html" data-toggle="tooltip" data-placement="top" title="" class="frist"
-														 data-original-title="Escorted Tour"><i class="flaticon-airplane-4"></i></a>
-														<a href="tours.html" data-toggle="tooltip" data-placement="top" title="" data-original-title="Rail Tour"><i
-															 class="flaticon-cart-1"></i></a>
-													</div>
-												</div>
-												<div class="wrapper_content">
-													<div class="post_title">
-														<h4>
-															<a href="single-tour.html" rel="bookmark">Discover Brazil</a>
-														</h4>
-													</div>
-													<span class="post_date">5 DAYS 4 NIGHTS</span>
-													<div class="description">
-														<p>Aliquam lacus nisl, viverra convallis sit amet&nbsp;penatibus nunc&nbsp;luctus</p>
-													</div>
-												</div>
-												<div class="read_more">
-													<div class="item_rating">
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star-o"></i>
-													</div>
-													<a rel="nofollow" href="single-tour.html" class="button product_type_tour_phys add_to_cart_button">Read
-														more</a>
-												</div>
-											</div>
-										</li>
-										<li class="item-tour col-md-4 col-sm-6 product">
-											<div class="item_border item-product">
-												<div class="post_images">
-													<a href="single-tour.html">
-														<span class="price"><del>$87.00</del>
-															<ins>$82.00</ins>
-														</span>
-														<span class="onsale">Sale!</span>
-														<img width="430" height="305" src="images/tour/430x305/tour-2.jpg" alt="Discover Brazil" title="Discover Brazil">
-													</a>
-													<div class="group-icon">
-														<a href="tours.html" data-toggle="tooltip" data-placement="top" title="" class="frist"
-														 data-original-title="River Cruise"><i class="flaticon-transport-2"></i></a>
-														<a href="tours.html" data-toggle="tooltip" data-placement="top" title="" data-original-title="Wildlife"><i
-															 class="flaticon-island"></i></a>
-													</div>
-												</div>
-												<div class="wrapper_content">
-													<div class="post_title">
-														<h4>
-															<a href="single-tour.html" rel="bookmark">Kiwiana Panorama</a>
-														</h4>
-													</div>
-													<span class="post_date">5 DAYS 4 NIGHTS</span>
-													<div class="description">
-														<p>Aliquam lacus nisl, viverra convallis sit amet&nbsp;penatibus nunc&nbsp;luctus</p>
-													</div>
-												</div>
-												<div class="read_more">
-													<div class="item_rating">
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star-o"></i>
-													</div>
-													<a rel="nofollow" href="single-tour.html" class="button product_type_tour_phys add_to_cart_button">Read
-														more</a>
-												</div>
-											</div>
-										</li>
-										<li class="item-tour col-md-4 col-sm-6 product">
-											<div class="item_border item-product">
-												<div class="post_images">
-													<a href="single-tour.html">
-														<span class="price">$64.00</span>
-														<img width="430" height="305" src="images/tour/430x305/tour-3.jpg" alt="Discover Brazil" title="Discover Brazil">
-													</a>
-													<div class="group-icon">
-														<a href="tours.html" data-toggle="tooltip" data-placement="top" title="" class="frist"
-														 data-original-title="Escorted Tour"><i class="flaticon-airplane-4"></i></a>
-														<a href="tours.html" data-toggle="tooltip" data-placement="top" title="" data-original-title="River Cruise"><i
-															 class="flaticon-transport-2"></i></a>
-													</div>
-												</div>
-												<div class="wrapper_content">
-													<div class="post_title">
-														<h4>
-															<a href="single-tour.html" rel="bookmark">Anchorage to Quito</a>
-														</h4>
-													</div>
-													<span class="post_date">5 DAYS 4 NIGHTS</span>
-													<div class="description">
-														<p>Aliquam lacus nisl, viverra convallis sit amet&nbsp;penatibus nunc&nbsp;luctus</p>
-													</div>
-												</div>
-												<div class="read_more">
-													<div class="item_rating">
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star-o"></i>
-													</div>
-													<a rel="nofollow" href="single-tour.html" class="button product_type_tour_phys add_to_cart_button">Read
-														more</a>
-												</div>
-											</div>
-										</li>
+									<ul class="tours products wrapper-tours-slider" id="relatedTour">
+
 									</ul>
 								</div>
 							</div>
@@ -588,44 +396,7 @@
 													<div class="">
 														<input type="text" name="date_book" value="" placeholder="Date Book" class="hasDatepicker">
 													</div>
-													<!-- <div class="from-group">
-														<div class="total_price_arrow">
-															<div class="st_adults_children">
-																<span class="label">Adults</span>
-																<div class="input-number-ticket">
-																	<input type="number" name="number_ticket" value="1" min="1" max="10" placeholder="Number ticket of Adults">
-																</div>
-																×
-																$<span class="price_adults">93</span>
-																=
-																<span class="total_price_adults">$93</span>
-															</div>
-															<div class="st_adults_children">
-																<span class="label">Children</span>
-																<div class="input-number-ticket">
-																	<input type="number" name="number_children" value="0" min="0" max="10" placeholder="Number ticket of Children">
-																	<input type="hidden" name="price_child" value="65.1">
-																	<input type="hidden" name="price_child_set_on_tour" value="0">
-																</div>
-																×
-																$<span class="price_children">65.1</span>
-																=
-																<span class="total_price_children">0</span>
-															</div>
-															<div>
-																Total =
-																<span class="total_price_adults_children">$93</span>
-															</div>
-															<input type="hidden" name="price_children_percent" value="70">
-														</div>
-													</div> -->
-													<!-- <div class="spinner">
-															<div class="rect1"></div>
-															<div class="rect2"></div>
-															<div class="rect3"></div>
-															<div class="rect4"></div>
-															<div class="rect5"></div>
-														</div> -->
+
 													<input class="btn-booking btn" value="Booking now" type="submit">
 												</form>
 											</div>
@@ -826,7 +597,7 @@
 		</div>
 	</div>
 	<!--end coppyright-->
-<!-- <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script> -->
+	<!-- <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script> -->
 	<script src="https://www.gstatic.com/firebasejs/5.8.0/firebase-app.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/5.8.0/firebase-auth.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/5.8.0/firebase-firestore.js"></script>
@@ -840,7 +611,7 @@
 	<script type='text/javascript' src='assets/js/vendors.js'></script>
 	<script type='text/javascript' src='assets/js/jquery.swipebox.min.js'></script>
 	<script type='text/javascript' src='assets/js/theme.js'></script>
-<script type='text/javascript' src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDhr7IR9TzalQUQK-fRHEs8psiTsIZy8Jc'></script>
+	<script type='text/javascript' src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDhr7IR9TzalQUQK-fRHEs8psiTsIZy8Jc'></script>
 	<script type='text/javascript' src='assets/js/gmap.js'></script>
 	<script src="./assets/js/detail.js"></script>
 </body>

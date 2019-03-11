@@ -43,7 +43,7 @@ const displayPopular = (data) => {
                                                 <a href="./single-tour.html?${id}" class="travel_tour-LoopProduct-link">
                                                     <span class="price">
                                                            
-                                                        <ins><span class="travel_tour-Price-amount amount">$ ${detail.price}.00</span></ins>
+                                                        <ins><span class="travel_tour-Price-amount amount">₦ ${detail.price}.00</span></ins>
                                                     </span>
                                                     
                                                     <img src=${detail.featuredImageUrl} alt="" title="" style= "height: 150px;">
@@ -82,13 +82,10 @@ const displayPopular = (data) => {
                                                 <i class="fa fa-long-arrow-right"></i></a>`
     html += but
     popularTours.innerHTML = html;
-    //slider()
-    // var tag = document.createElement('script');
-    // tag.setAttribute("src","./owl.carousel.min.js");
-    // document.getElementsByTagName("body")[0].appendChild(tag);
+    
 
 }
-// setTimeout(displayPopular, 1000)
+
 db.collection('tourLocation').onSnapshot(snapshot => {
     //  console.log(snapshot.docs.id);
     let data = snapshot.docs;
