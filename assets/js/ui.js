@@ -33,7 +33,7 @@ const displayPopular = (data) => {
     //console.log(tours)
     let html = ``
 
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 3; i++) {
         let id = data[i].id
         const detail = data[i].data();
         const div = `<div class="item-tour col-md-3 col-sm-6 product">

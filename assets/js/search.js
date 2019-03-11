@@ -76,7 +76,7 @@ db.collection('tourLocation').where("tourName", "==", tourNameSession).onSnapsho
 
          tour.innerHTML = html
      } else {
-         tour.innerHTML = '<h5 class="center-align"> No Tour Added</h5'
+         tour.innerHTML = '<h5 class="center-align"> No Result Found</h5'
      }
 
  }

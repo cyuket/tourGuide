@@ -65,3 +65,15 @@
      }
 
  }
+
+ const tourBookingForm = document.querySelector("#tourBookingForm");
+ tourBookingForm.addEventListener("submit", (e) => {
+     e.preventDefault();
+     const tourName = tourBookingForm['name_tour'].value
+     const sTourType = tourType.options[tourType.selectedIndex].text;
+     const sdestination = destination.options[destination.selectedIndex].text;
+     let tourTypeSession = sessionStorage.setItem("tourType", sTourType);
+     let tourNameSession = sessionStorage.setItem("tourName", tourName);
+     let destinationSession = sessionStorage.setItem("tourDestination", sdestination);
+     window.location.href = `./searchTour.html`;
+ })
