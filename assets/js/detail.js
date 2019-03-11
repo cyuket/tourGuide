@@ -27,8 +27,8 @@ const setupDetail = (data) => {
     }, function (results, status) {
             if (status == 'OK') {
              var mapOptions = {
-                 zoom: 8,
-                 center: latlng
+                 zoom: 10,
+                //  center: latlng
              }
                 map = new google.maps.Map(mapDisplay,mapOptions);
             map.setCenter(results[0].geometry.location);
@@ -218,4 +218,8 @@ const setupDetail = (data) => {
     // 										 alt="" title="" draggable="false">
     // 									</li>`
 
+
+
 }
+
+

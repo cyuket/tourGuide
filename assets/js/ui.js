@@ -70,7 +70,7 @@ const displayPopular = (data) => {
                                                 <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
                                                     class="fa fa-star"></i><i class="fa fa-star"></i>
                                             </div>
-                                            <a href="href="./single-tour.html?${id}" class="read_more_button">VIEW MORE
+                                            <a href="./single-tour.html?${id}" class="read_more_button">VIEW MORE
                                                 <i class="fa fa-long-arrow-right"></i></a>
                                             <div class="clear"></div>
                                         </div>
