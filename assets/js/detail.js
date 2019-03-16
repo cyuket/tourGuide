@@ -3,13 +3,33 @@ const state = document.querySelector("#state");
 const days = document.querySelector("#days");
 const bprice = document.querySelector("#bprice");
 const category = document.querySelector("#category");
-// const slider = document.querySelector("#slider");
+const dImg1 = document.querySelector("#dImg1")
+const dImg2 = document.querySelector("#dImg2")
+const dImg3 = document.querySelector("#dImg3")
+const dImg4 = document.querySelector("#dImg4")
+const dImg5 = document.querySelector("#dImg5")
+const dImg6 = document.querySelector("#dImg6")
+
+const aImg1 = document.querySelector("#aImg1")
+const aImg2 = document.querySelector("#aImg2")
+const aImg3 = document.querySelector("#aImg3")
+const aImg4 = document.querySelector("#aImg4")
+const aImg5 = document.querySelector("#aImg5")
+const aImg6 = document.querySelector("#aImg6")
+
+const carImg1 = document.querySelector("#carImg1")
+const carImg2 = document.querySelector("#carImg2")
+const carImg3 = document.querySelector("#carImg3")
+const carImg4 = document.querySelector("#carImg4")
+const carImg5 = document.querySelector("#carImg5")
+const carImg6 = document.querySelector("#carImg6")
 const carousel = document.querySelector("#carousel1");
 const description = document.querySelector("#tab-description");
 let geocoder = new google.maps.Geocoder();
 let mapDisplay = document.querySelector("#mapDisplay")
 var map;
-
+let priceAmount
+let paystackEmail
 console.log(id)
 
 db.collection('tourLocation').doc(id).onSnapshot(snapshot => {
@@ -22,6 +42,7 @@ db.collection('tourLocation').doc(id).onSnapshot(snapshot => {
 
 const setupDetail = (data) => {
     let address = data.location
+    // maps confiquration
     geocoder.geocode({
         'address': address
     }, function (results, status) {
@@ -41,186 +62,35 @@ const setupDetail = (data) => {
         }
     });
     const extraImage = data.extraImageUrl
+    dImg1.src = extraImage.image0
+    dImg2.src = extraImage.image1
+    dImg3.src = extraImage.image2
+    dImg4.src = extraImage.image3
+    dImg5.src = extraImage.image4
+    dImg6.src = extraImage.image5
+
+    aImg1.href = extraImage.image0
+    aImg2.href = extraImage.image1
+    aImg3.href = extraImage.image2
+    aImg4.href = extraImage.image3
+    aImg5.href = extraImage.image4
+    aImg6.href = extraImage.image5
+
+    carImg1.src = extraImage.image0
+    carImg2.src = extraImage.image1
+    carImg3.src = extraImage.image2
+    carImg4.src = extraImage.image3
+    carImg5.src = extraImage.image4
+    carImg6.src = extraImage.image5
     state.innerHTML = data.selectedState;
     days.innerHTML = `${data.days} DAYS`;
     category.innerHTML = data.selectedTourType;
     description.innerHTML = data.decription
     bprice.innerHTML = data.price
-    // slider.innerHTML = `<ul class="slides">
-    // 									<li>
-    // 										<a href = "${extraImage.image0}"
-    // 										class = "swipebox"
-    // 										title = "" > <img width = "950"
-    // 										height = "200"
-    // 										src = ${extraImage.image0}
-    // 											 class="attachment-shop_single size-shop_single wp-post-image" alt="" title="" draggable="false"> </a>
-    // 									</li>
-    // 									<li>
-    // 									    <a href = "${extraImage.image1}"
-    // 									class = "swipebox"
-    // 									title = "" > <img width = "950"
-    // 									height = "700"
-    // 									src = ${extraImage.image1}
-    // 									class = "attachment-shop_single size-shop_single wp-post-image"
-    // 									alt = ""
-    // 									title = ""
-    // 									draggable = "false" > </a> </li>
-    // 									<li>
-    // 									    <a href = "${extraImage.image2}"
-    // 									class = "swipebox"
-    // 									title = "" > <img width = "950"
-    // 									height = "700"
-    // 									src = ${extraImage.image2}
-    // 									class = "attachment-shop_single size-shop_single wp-post-image"
-    // 									alt = ""
-    // 									title = ""
-    // 									draggable = "false" > </a> </li>
-    // 									<li>
-    // 									    <a href = "${extraImage.image3}"
-    // 									class = "swipebox"
-    // 									title = "" > <img width = "950"
-    // 									height = "700"
-    // 									src = ${extraImage.image3}
-    // 									class = "attachment-shop_single size-shop_single wp-post-image"
-    // 									alt = ""
-    // 									title = ""
-    // 									draggable = "false" > </a> </li>
-    // 									<li>
-    // 									    <a href = "${extraImage.image4}"
-    // 									class = "swipebox"
-    // 									title = "" > <img width = "950"
-    // 									height = "700"
-    // 									src = ${extraImage.image4}
-    // 									class = "attachment-shop_single size-shop_single wp-post-image"
-    // 									alt = ""
-    // 									title = ""
-    // 									draggable = "false" > </a> </li>
-    // 									<li>
-    // 									    <a href = "${extraImage.image5}"
-    // 									class = "swipebox"
-    // 									title = "" > <img width = "950"
-    // 									height = "700"
-    // 									src = ${extraImage.image5}
-    // 									class = "attachment-shop_single size-shop_single wp-post-image"
-    // 									alt = ""
-    // 									title = ""
-    //                                     draggable = "false" > </a> 
-    //                                     </li>
-    //                                 </ul>`;
-    // carousel.innerHTML = `<li>
-    // 										<img width = "150"
-    // 										height = "100"
-    // 									    src = ${extraImage.image0}
-    // 										class = "attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
-    // 										 alt="" title="" draggable="false">
-    // 									</li>
-    // 									<li>
-    // 										<img width = "150"
-    // 										height = "100"
-    // 									    src = ${extraImage.image1}
-    // 										class = "attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
-    // 										 alt="" title="" draggable="false">
-    // 									</li>
-    // 									<li>
-    // 										<img width = "150"
-    // 										height = "100"
-    // 									    src = ${extraImage.image2}
-    // 										class = "attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
-    // 										 alt="" title="" draggable="false">
-    // 									</li>
-    // 									<li>
-    // 										<img width = "150"
-    // 										height = "100"
-    // 									    src = ${extraImage.image3}
-    // 										class = "attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
-    // 										 alt="" title="" draggable="false">
-    // 									</li>
-    // 									<li>
-    // 										<img width = "150"
-    // 										height = "100"
-    // 									    src = ${extraImage.image4}
-    // 										class = "attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
-    // 										 alt="" title="" draggable="false">
-    // 									</li>
-    // 									<li>
-    // 										<img width = "150"
-    // 										height = "100"
-    // 									    src = ${extraImage.image5}
-    // 										class = "attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
-    // 										 alt="" title="" draggable="false">
-    // 									</li>`
-    // carousel.innerHTML = `<ul class="slides">
-    // 									<li>
-    // 										<img width = "150"
-    // 										height = "100"
-    // 									    src = ${extraImage.image0}
-    // 										class = "attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
-    // 										 alt="" title="" draggable="false">
-    // 									</li>
-    // 									<li>
-    // 										<img width = "150"
-    // 										height = "100"
-    // 									    src = ${extraImage.image1}
-    // 										class = "attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
-    // 										 alt="" title="" draggable="false">
-    // 									</li>
-    // 									<li>
-    // 										<img width = "150"
-    // 										height = "100"
-    // 									    src = ${extraImage.image2}
-    // 										class = "attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
-    // 										 alt="" title="" draggable="false">
-    // 									</li>
-    // 									<li>
-    // 										<img width = "150"
-    // 										height = "100"
-    // 									    src = ${extraImage.image3}
-    // 										class = "attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
-    // 										 alt="" title="" draggable="false">
-    // 									</li>
-    // 									<li>
-    // 										<img width = "150"
-    // 										height = "100"
-    // 									    src = ${extraImage.image4}
-    // 										class = "attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
-    // 										 alt="" title="" draggable="false">
-    // 									</li>
-    // 									<li>
-    // 										<img width = "150"
-    // 										height = "100"
-    // 									    src = ${extraImage.image5}
-    // 										class = "attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
-    // 										 alt="" title="" draggable="false">
-    // 									</li>
-    // 								</ul>`;
-    // carousel.innerHTML = `<li>
-    // 										<img width="150" height="100" src="images/tour/tour-1.jpg" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
-    // 										 alt="" title="" draggable="false">
-    // 									</li>
-    // 									<li>
-    // 										<img width="150" height="100" src="images/tour/tour-2.jpg" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
-    // 										 alt="" title="" draggable="false">
-    // 									</li>
-    // 									<li>
-    // 										<img width="150" height="100" src="images/tour/tour-3.jpg" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
-    // 										 alt="" title="" draggable="false">
-    // 									</li>
-    // 									<li>
-    // 										<img width="150" height="100" src="images/tour/tour-4.jpg" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
-    // 										 alt="" title="" draggable="false">
-    // 									</li>
-    // 									<li>
-    // 										<img width="150" height="100" src="images/tour/tour-5.jpg" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
-    // 										 alt="" title="" draggable="false">
-    // 									</li>
-    // 									<li>
-    // 										<img width="150" height="100" src="images/tour/tour-6.jpg" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
-    // 										 alt="" title="" draggable="false">
-    // 									</li>`
-
-
+    priceAmount = data.price * 100;
 
 }
+// popular tour section
 const relatedTour = document.querySelector("#relatedTour");
 const displayPopular = (data) => {
 
@@ -275,6 +145,8 @@ db.collection('tourLocation').onSnapshot(snapshot => {
 }, err => {
     console.log(err.message)
 });
+
+// reviews form 
 const commentForm = document.querySelector("#commentForm")
 commentForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -291,11 +163,12 @@ commentForm.addEventListener('submit', (e) => {
         })
         .then(() => {
             alert("Your Reviews has been Added");
-           
+
             commentForm.reset()
         })
 })
 
+// displaying og review
 const reviews = document.querySelector(".review-content");
 const reviewNo = document.querySelector("#reviewNo")
 const setupReviews = (data) => {
@@ -306,11 +179,7 @@ const setupReviews = (data) => {
             const detail = item.data();
             const d = detail.created
             const date = new Date(d)
-            console.log(d)
-            // const date = d.getDate().toString()
-            // const year = d.getFullYear().toString()
-            // const month = d.getMonth()
-            //const date = [(d.getDate()), pad(d.getMonth() + 1), d.getFullYear()].join('/');
+            // console.log(d)
             const div = `<div id="comments">
                         <h2 class="travel_tour-Reviews-title">Review from
                             <strong><span>${detail.author}</span></strong></h2>
@@ -343,6 +212,7 @@ const setupReviews = (data) => {
     }
 
 }
+
 // setupReviews()
 db.collection('reviews').where("id", "==", id).onSnapshot(snapshot => {
     //console.log(snapshot.docs.id);
@@ -351,3 +221,188 @@ db.collection('reviews').where("id", "==", id).onSnapshot(snapshot => {
 }, err => {
     console.log(err.message)
 });
+const body = jQuery('body');
+const tourBookingForm = document.querySelector("#tourBookingForm");
+tourBookingForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const textBooked = document.querySelector("#booked")
+    const first_name = tourBookingForm['first_name'].value
+    const last_name = tourBookingForm['last_name'].value
+    const email_tour = tourBookingForm['email_tour'].value
+    paystackEmail = email_tour;
+    const phone = tourBookingForm['phone'].value
+    const date_book = tourBookingForm['date_book'].value
+    let userId = sessionStorage.getItem("userId");
+    if (userId) {
+        
+        //console.log(date_book)
+        var handler = PaystackPop.setup({
+            key: 'pk_test_2e64c101c3bdb894f318373c55b33615e9e112d6', //put your public key here
+            //key: 'pk_test_d7f7b7768e7a11567836a91b2c298ca41b33f72f',
+            email: paystackEmail, //put your customer's email here
+            amount: priceAmount, //amount the customer is supposed to pay
+            metadata: {
+                custom_fields: [{
+                    display_name: "Mobile Number",
+                    variable_name: "mobile_number",
+                    value: phone //customer's mobile number
+                }]
+            },
+            callback: function (response) {
+
+                db.collection('bookings').doc().set({
+                        first_name,
+                        last_name,
+                        paystackEmail,
+                        last_name,
+                        phone,
+                        date_book,
+                        userId,
+                        id
+                    })
+                    .then(() => {
+                        textBooked.innerHTML = `<h4> You Have Made Reservation</h4>`
+                        tourBookingForm.reset()
+                    })
+
+            },
+            onClose: function () {
+                //when the user close the payment modal
+                alert('Transaction cancelled');
+                // document.getElementById('id03').style.display = "none";
+            }
+        });
+        handler.openIframe()
+
+    } else {
+        //  jQuery('#tourBookingForm').on('click', function (e) {
+        body.addClass("show_form_popup_login");
+        //  });
+    }
+
+
+    let signupForm = document.querySelector('#register')
+    signupForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = signupForm['reg_email'].value
+        const password = signupForm['reg_password'].value
+        const username = signupForm['reg_username'].value
+        const firstName = signupForm['reg_firstName'].value
+        const lastName = signupForm['reg_lastName'].value
+
+        // if (password == cpassword) {
+        //signup a user
+        auth.createUserWithEmailAndPassword(email, password)
+            .then(cred => {
+                return db.collection('users').doc(cred.user.uid).set({
+                    email,
+                    username,
+                    lastName,
+                    firstName,
+                    userId: cred.user.uid
+                });
+
+            }).then(() => {
+
+                //body.removeClass("show_form_popup_register");
+                signupForm.reset();
+                var handler = PaystackPop.setup({
+                    key: 'pk_test_2e64c101c3bdb894f318373c55b33615e9e112d6', //put your public key here
+                    //key: 'pk_test_d7f7b7768e7a11567836a91b2c298ca41b33f72f',
+                    email: paystackEmail, //put your customer's email here
+                    amount: priceAmount, //amount the customer is supposed to pay
+                    metadata: {
+                        custom_fields: [{
+                            display_name: "Mobile Number",
+                            variable_name: "mobile_number",
+                            value: phone //customer's mobile number
+                        }]
+                    },
+                    callback: function (response) {
+
+                        db.collection('bookings').doc().set({
+                                first_name,
+                                last_name,
+                                paystackEmail,
+                                last_name,
+                                phone,
+                                date_book,
+                                userId,
+                                id
+                            })
+                            .then(() => {
+                                textBooked.innerHTML = `<h4> You Have Made Reservation</h4>`
+                                tourBookingForm.reset()
+                            })
+
+                    },
+                    onClose: function () {
+                        //when the user close the payment modal
+                        alert('Transaction cancelled');
+                        // document.getElementById('id03').style.display = "none";
+                    }
+                });
+                handler.openIframe()
+            })
+        // }
+
+
+    })
+
+    //login
+    const loginForm = document.querySelector('#loginform');
+    loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = loginForm['user_login'].value
+        const password = loginForm['user_pass'].value
+
+        //console.log(email, password)
+        auth.signInWithEmailAndPassword(email, password).then(cred => {
+            let userId = cred.user.uid;
+            let currentUser = firebase.auth().currentUser.email;
+            let currentUserSession = sessionStorage.setItem("user", currentUser);
+            let currentUserId = sessionStorage.setItem("userId", userId);
+            var handler = PaystackPop.setup({
+                key: 'pk_test_2e64c101c3bdb894f318373c55b33615e9e112d6', //put your public key here
+                //key: 'pk_test_d7f7b7768e7a11567836a91b2c298ca41b33f72f',
+                email: paystackEmail, //put your customer's email here
+                amount: priceAmount, //amount the customer is supposed to pay
+                metadata: {
+                    custom_fields: [{
+                        display_name: "Mobile Number",
+                        variable_name: "mobile_number",
+                        value: phone //customer's mobile number
+                    }]
+                },
+                callback: function (response) {
+
+                    db.collection('bookings').doc().set({
+                            first_name,
+                            last_name,
+                            paystackEmail,
+                            last_name,
+                            phone,
+                            date_book,
+                            userId,
+                            id
+                        })
+                        .then(() => {
+                            textBooked.innerHTML = `<h4> You Have Made Reservation</h4>`
+                            tourBookingForm.reset()
+                        })
+
+                },
+                onClose: function () {
+                    //when the user close the payment modal
+                    alert('Transaction cancelled');
+                    // document.getElementById('id03').style.display = "none";
+                }
+            });
+            handler.openIframe()
+            loginForm.reset();
+        })
+    })
+
+
+})  

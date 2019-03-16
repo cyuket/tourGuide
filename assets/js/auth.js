@@ -5,8 +5,11 @@ auth.onAuthStateChanged(user => {
    
     if (user) {
         userId = user.uid
+        //console.log(userId)
         user.getIdTokenResult().then(id => {
-
+            let currentUser = firebase.auth().currentUser.email;
+            let currentUserSession = sessionStorage.setItem("user", currentUser);
+            let currentUserId = sessionStorage.setItem("userId", userId);
             //user.admin = id.claims.admin;
 
             setupUi(user);
@@ -16,6 +19,7 @@ auth.onAuthStateChanged(user => {
 
     } else {
         //setupGuides([]);
+        let currentUserId = sessionStorage.setItem("userId", '');
         setupUi();
     }
 });
