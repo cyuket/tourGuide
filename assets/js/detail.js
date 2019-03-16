@@ -2,6 +2,7 @@ let id = window.location.search.split("?")[1]
 const state = document.querySelector("#state");
 const days = document.querySelector("#days");
 const bprice = document.querySelector("#bprice");
+const bookingDiv = document.querySelector("#bookingDiv");
 const category = document.querySelector("#category");
 const dImg1 = document.querySelector("#dImg1")
 const dImg2 = document.querySelector("#dImg2")
@@ -30,6 +31,8 @@ let mapDisplay = document.querySelector("#mapDisplay")
 var map;
 let priceAmount
 let paystackEmail
+let tourName
+let usersId
 console.log(id)
 
 db.collection('tourLocation').doc(id).onSnapshot(snapshot => {
@@ -88,6 +91,7 @@ const setupDetail = (data) => {
     description.innerHTML = data.decription
     bprice.innerHTML = data.price
     priceAmount = data.price * 100;
+    tourName = data.tourName
 
 }
 // popular tour section
@@ -234,8 +238,9 @@ tourBookingForm.addEventListener("submit", (e) => {
     const phone = tourBookingForm['phone'].value
     const date_book = tourBookingForm['date_book'].value
     let userId = sessionStorage.getItem("userId");
+    usersId = userId
     if (userId) {
-        
+
         //console.log(date_book)
         var handler = PaystackPop.setup({
             key: 'pk_test_2e64c101c3bdb894f318373c55b33615e9e112d6', //put your public key here
@@ -259,11 +264,13 @@ tourBookingForm.addEventListener("submit", (e) => {
                         phone,
                         date_book,
                         userId,
-                        id
+                        id,
+                        tourName
                     })
                     .then(() => {
                         textBooked.innerHTML = `<h4> You Have Made Reservation</h4>`
-                        tourBookingForm.reset()
+                        tourBookingForm.reset();
+                        bookingDiv.style.display = 'none'
                     })
 
             },
@@ -295,6 +302,9 @@ tourBookingForm.addEventListener("submit", (e) => {
         //signup a user
         auth.createUserWithEmailAndPassword(email, password)
             .then(cred => {
+                sessionStorage.setItem("userId", cred.user.uid)
+                let userId = sessionStorage.getItem("userId");
+                usersId = userId
                 return db.collection('users').doc(cred.user.uid).set({
                     email,
                     username,
@@ -329,11 +339,13 @@ tourBookingForm.addEventListener("submit", (e) => {
                                 phone,
                                 date_book,
                                 userId,
-                                id
+                                id,
+                                tourName
                             })
                             .then(() => {
                                 textBooked.innerHTML = `<h4> You Have Made Reservation</h4>`
                                 tourBookingForm.reset()
+                                bookingDiv.style.display = 'none'
                             })
 
                     },
@@ -359,7 +371,12 @@ tourBookingForm.addEventListener("submit", (e) => {
 
         //console.log(email, password)
         auth.signInWithEmailAndPassword(email, password).then(cred => {
-            let userId = cred.user.uid;
+            sessionStorage.setItem("userId", cred.user.uid)
+
+            let userId = sessionStorage.getItem("userId");
+
+            usersId = userId
+            console.log(usersId)
             let currentUser = firebase.auth().currentUser.email;
             let currentUserSession = sessionStorage.setItem("user", currentUser);
             let currentUserId = sessionStorage.setItem("userId", userId);
@@ -385,11 +402,13 @@ tourBookingForm.addEventListener("submit", (e) => {
                             phone,
                             date_book,
                             userId,
-                            id
+                            id,
+                            tourName
                         })
                         .then(() => {
                             textBooked.innerHTML = `<h4> You Have Made Reservation</h4>`
                             tourBookingForm.reset()
+                            bookingDiv.style.display = 'none'
                         })
 
                 },
@@ -405,4 +424,49 @@ tourBookingForm.addEventListener("submit", (e) => {
     })
 
 
-})  
+})
+const tableBody = document.querySelector("#tableBody")
+const setupTable = (data) => {
+    if (data.length) {
+        let html = "";
+        data.forEach(docs => {
+            const detail = docs.data();
+            //console.log(detail)
+            const td = `<tr>
+                            <td><a href="./single-tour.html?${detail.id}">${detail.tourName} </a></td>
+                            <td>${detail.date_book}</td>
+                        </tr>`;
+            html += td;
+        });
+        tableBody.innerHTML = html
+    } else {
+        bookingDiv.style.display = 'block'
+
+        tableBody.innerHTML = `<h5 class="center-align"> You Don't have any reservation </h5>`
+    }
+
+}
+let userId = sessionStorage.getItem("userId");
+
+usersId = userId
+console.log(usersId)
+// console.log(usersId)
+db.collection('bookings').where("userId", "==", usersId).onSnapshot(snapshot => {
+    //console.log(snapshot.docs.id);
+    let data = snapshot.docs;
+    setupTable(data);
+    if (data.length > 0) {
+        db.collection('bookings').where("id", "==", id).onSnapshot(snapshot => {
+            //console.log(snapshot.docs.id);
+            let data = snapshot.docs;
+            if (data.length > 0) {
+                bookingDiv.style.display = 'none'
+            }
+
+        }, err => {
+            console.log(err.message)
+        });
+    }
+}, err => {
+    console.log(err.message)
+});
