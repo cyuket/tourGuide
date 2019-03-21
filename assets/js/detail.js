@@ -4,6 +4,7 @@ const days = document.querySelector("#days");
 const bprice = document.querySelector("#bprice");
 const bookingDiv = document.querySelector("#bookingDiv");
 const category = document.querySelector("#category");
+const breadName = document.querySelector("#breadName")
 const dImg1 = document.querySelector("#dImg1")
 const dImg2 = document.querySelector("#dImg2")
 const dImg3 = document.querySelector("#dImg3")
@@ -89,9 +90,12 @@ const setupDetail = (data) => {
     days.innerHTML = `${data.days} DAYS`;
     category.innerHTML = data.selectedTourType;
     description.innerHTML = data.decription
-    bprice.innerHTML = data.price
+   
+    breadName.innerHTML = data.tourName
+    var string = numeral(data.price).format('0,0');
     priceAmount = data.price * 100;
     tourName = data.tourName
+     bprice.innerHTML = string
 
 }
 // popular tour section
@@ -104,12 +108,13 @@ const displayPopular = (data) => {
     for (let i = 0; i < 3; i++) {
         let id = data[i].id
         const detail = data[i].data();
+        let string = numeral(detail.price).format('0,0');
         const div = `<li class="item-tour col-md-4 col-sm-6 product">
 											<div class="item_border item-product">
 												<div class="post_images">
 													<a href="./single-tour.html?${id}">
-														<span class="price">₦ ${detail.price}</span>
-														<img src=${detail.featuredImageUrl} alt="" title="" style= "height: 150px;">
+														<span class="price">₦${string}</span>
+														<img src=${detail.featuredImageUrl} alt="" title="" style= "height: 150px; width:300px">
 													</a>
 													
 												</div>

@@ -78,10 +78,9 @@ locationForm.addEventListener('submit', (e) => {
     const days = locationForm['tDays'].value;
     const price = locationForm['tprice'].value;
     const location = locationForm['tLocation'].value;
-    const decription = document.querySelector('#editor1').value
+    const decription = document.querySelector('#cDescription').value
     const selectedTourType = tourType.options[tourType.selectedIndex].text;
     const selectedState = state.options[state.selectedIndex].text
-    console.log(decription)
 
     db.collection('tourLocation').doc().set({
             tourName,
@@ -104,6 +103,5 @@ locationForm.addEventListener('submit', (e) => {
         .then(() => {
             window.location.href = "./allLocation.html";
         })
-
-
+    console.log(decription)
 })

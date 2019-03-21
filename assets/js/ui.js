@@ -33,9 +33,10 @@ const displayPopular = (data) => {
     //console.log(tours)
     let html = ``
 
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 4; i++) {
         let id = data[i].id
         const detail = data[i].data();
+        let string = numeral(detail.price).format('0,0');
         const div = `<div class="item-tour col-md-3 col-sm-6 product">
                                     <div class="item_border">
                                         <div class="item_content">
@@ -43,10 +44,10 @@ const displayPopular = (data) => {
                                                 <a href="./single-tour.html?${id}" class="travel_tour-LoopProduct-link">
                                                     <span class="price">
                                                            
-                                                        <ins><span class="travel_tour-Price-amount amount">₦ ${detail.price}.00</span></ins>
+                                                        <ins><span class="travel_tour-Price-amount amount">₦ ${string}</span></ins>
                                                     </span>
                                                     
-                                                    <img src=${detail.featuredImageUrl} alt="" title="" style= "height: 150px;">
+                                                    <img src=${detail.featuredImageUrl} alt="" title="" style= "height: 150px; width:300px">
                                                 </a>
                                                 <div class="group-icon">
                                                     <a href="./single-tour.html?${id}" data-toggle="tooltip" data-placement="top" title=""
