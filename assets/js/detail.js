@@ -104,7 +104,7 @@ const displayPopular = (data) => {
 
     //console.log(tours)
     let html = ``
-
+    if (data.length >= 4) {
     for (let i = 0; i < 3; i++) {
         let id = data[i].id
         const detail = data[i].data();
@@ -143,6 +143,47 @@ const displayPopular = (data) => {
 										</li>`
         html += div
     }
+    } else {
+        data.forEach(data => {
+            let id = data.id
+            const detail = data.data();
+            let string = numeral(detail.price).format('0,0');
+            const div = `<li class="item-tour col-md-4 col-sm-6 product">
+											<div class="item_border item-product">
+												<div class="post_images">
+													<a href="./single-tour.html?${id}">
+														<span class="price">₦${string}</span>
+														<img src=${detail.featuredImageUrl} alt="" title="" style= "height: 150px; width:300px">
+													</a>
+													
+												</div>
+												<div class="wrapper_content">
+													<div class="post_title">
+														<h4>
+															<a href="./single-tour.html?${id}" rel="bookmark">${detail.tourName}</a>
+														</h4>
+													</div>
+													<span class="post_date">${detail.days} DAYS</span>
+													<div class="description">
+													</div>
+												</div>
+												<div class="read_more">
+													<div class="item_rating">
+														<i class="fa fa-star"></i>
+														<i class="fa fa-star"></i>
+														<i class="fa fa-star"></i>
+														<i class="fa fa-star"></i>
+														<i class="fa fa-star-o"></i>
+													</div>
+													<a rel="nofollow" href="./single-tour.html?${id}" class="button product_type_tour_phys add_to_cart_button">Read
+														more</a>
+												</div>
+											</div>
+										</li>`
+            html += div
+        })
+    }
+    
 
     relatedTour.innerHTML = html;
 }

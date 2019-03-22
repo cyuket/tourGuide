@@ -12,9 +12,14 @@ const db = firebase.firestore();
 const functions = firebase.functions();
 const storage = firebase.storage();
 db.collection('tourLocation').onSnapshot(snapshot => {
-     // console.log(snapshot.docs);
-     //let data = snapshot.docs.data();
-     setupTable(snapshot.docs);
- }, err => {
-     console.log(err.message)
- });
+    let changes = snapshot.docs;
+    if (changes.length) {
+        changes.forEach(change => {
+            // console.log(change.doc.data());
+            setupTable(change);
+        });
+    } else {
+      tableBody.innerHTML = '<h5 class="center-align"> No Location added</h5'
+    }
+    
+});
