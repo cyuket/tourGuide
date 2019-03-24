@@ -18,7 +18,7 @@ const setupTable = (doc) => {
     deleteButton.setAttribute("data-id", doc.id);
     updateButton.setAttribute("class", "btn btn-primary");
     deleteButton.setAttribute("class", "btn btn-danger");
-    updateButton.setAttribute("data-id", doc.id);
+    updateButton.setAttribute("href", `./editAddLocation.html?${doc.id}`);
 
     name.textContent = doc.data().tourName;
     days.textContent = doc.data().days;

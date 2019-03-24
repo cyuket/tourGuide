@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
+    <meta name="author" content="GeeksLabs">
+    <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
+    <link rel="shortcut icon" href="img/favicon.png">
+
+    <title>Tour Guide</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- bootstrap theme -->
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
+    <!--external css-->
+    <!-- font icon -->
+    <link href="css/elegant-icons-style.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Custom styles -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/trix.css">
+
+
+</head>
+
+<body>
+    <!-- container section start -->
+    <section id="container" class="">
+        <!--header start-->
+
+        <header class="header dark-bg">
+            <div class="toggle-nav">
+                <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i
+                        class="icon_menu"></i></div>
+            </div>
+
+            <!--logo start-->
+            <a href="index.html" class="logo">Tour <span class="lite">Guide</span></a>
+
+
+
+        </header>
+        <!--header end-->
+
+        <!--sidebar start-->
+        <aside>
+            <div id="sidebar" class="nav-collapse ">
+                <!-- sidebar menu start-->
+                <ul class="sidebar-menu">
+                    <li class="">
+                        <a class="" href="index.html">
+                            <i class="icon_house_alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;" class="">
+                            <i class="icon_document_alt"></i>
+                            <span>Location</span>
+                            <span class="menu-arrow arrow_carrot-right"></span>
+                        </a>
+                        <ul class="sub">
+                            <li><a class="" href="./addLocation.html">Add Location</a></li>
+                            <li><a class="" href="./allLocation.html">All Locations</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <!-- sidebar menu end-->
+            </div>
+        </aside>
+        <!--sidebar end-->
+
+        <!--main content start-->
+        <section id="main-content">
+            <section class="wrapper">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h3 class="page-header"><i class="fa fa-files-o"></i> Edit Location</h3>
+                        <ol class="breadcrumb">
+                            <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+                            <li><i class="icon_document_alt"></i>Locations</li>
+                            <li><i class="fa fa-files-o"></i>Edit Locations</li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- page start-->
+                <div class="row">
+                    <div class="col-lg-8">
+                        <section class="panel">
+                            <header class="panel-heading">
+                                Edit <span>euudju</span>
+                            </header>
+                            <div class="panel-body">
+                                <div class="form">
+                                    <form class="form-validate form-horizontal locationForm" id="feedback_form"
+                                        method="POST">
+                                        <div class="form-group ">
+                                            <label for="cname" class="control-label col-lg-2">Tour Name <span
+                                                    class="required">*</span></label>
+                                            <div class="col-lg-10">
+                                                <input class="form-control" id="tName" name="fullname" minlength="5"
+                                                    type="text" required />
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <label for="cemail" class="control-label col-lg-2">State<span
+                                                    class="required">*</span></label>
+                                            <div class="col-lg-10">
+
+
+                                                <select class="form-control input-lg m-bot15" id="state" required>
+                                                    <option value="0">Choose State</option>
+                                                    <option value="china">Akwa Ibom</option>
+                                                    <option value="canada">Cross River</option>
+                                                    <option value="cuba">Lagos</option>
+                                                    <option value="italy">Abuja</option>
+                                                    <option value="philippines">Port Harchourt</option>
+                                                    <option value="usa">Enugu</option>
+                                                </select>
+                                                <!-- <input class="form-control " id="cemail" type="text" name="email"
+                                                    required /> -->
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <label for="cemail" class="control-label col-lg-2">Tour Type<span
+                                                    class="required">*</span></label>
+                                            <div class="col-lg-10">
+
+
+                                                <select class="form-control input-lg m-bot15" id="tourType">
+                                                    <option value="0">Tour Type</option>
+                                                    <option value="escorted-tour">Escorted Tour</option>
+                                                    <option value="rail-tour">Rail Tour</option>
+                                                    <option value="river-cruise">River Cruise</option>
+                                                    <option value="tour-cruise">Tour &amp; Cruise</option>
+                                                    <option value="wildlife">Wildlife</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <label for="curl" class="control-label col-lg-2">Days</label>
+                                            <div class="col-lg-10">
+                                                <input class="form-control " id="tDays" type="number" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <label for="cname" class="control-label col-lg-2">Price <span
+                                                    class="required">*</span></label>
+                                            <div class="col-lg-10">
+                                                <input class="form-control" id="tprice" name="subject" type="number"
+                                                    required />
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <label for="cname" class="control-label col-lg-2">Location <span
+                                                    class="required">*</span></label>
+                                            <div class="col-lg-10">
+                                                <input class="form-control" id="tLocation" type="text" required />
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <label for="ccomment" class="control-label col-lg-2">Full
+                                                Description</label>
+                                            <div class="col-lg-10">
+
+                                                <!-- <textarea class="form-control ckeditor" name="editor1" rows="6" id="editor1"></textarea> -->
+
+                                                <textarea class="form-control " id="cDescription" name="comment"
+                                                    required></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-lg-offset-2 col-lg-10">
+                                                <button class="btn btn-primary" type="submit">Save</button>
+                                                <button class="btn btn-default" type="button">Cancel</button>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+
+                            </div>
+                        </section>
+                    </div>
+                    <div class="col-4">
+                        <div class="panel">
+                            <h3>Featured Image</h3>
+                            <div class="fx-card-avatar fx-overlay-1">
+                                <img src="./img/profile-placeholder.jpg" id="imageURL0" alt="user" width="30%"
+                                    height="200px">
+                                <!-- <input type="file" style="display:none" id="fileInput"> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button id="featuredImage" class="btn btn-primary">Insert Featured Image </button>
+                    </div>
+
+                    <div class="col-2">
+                        <h3>Extra Images</h3>
+                        <div class="panel">
+                            <div class="fx-card-avatar fx-overlay-1">
+                                <img src="./img/profile-placeholder.jpg" id="imageURL1" alt="user" width="10%">
+                                <img src="./img/profile-placeholder.jpg" id="imageURL2" alt="user" width="10%">
+                                <img src="./img/profile-placeholder.jpg" id="imageURL3" alt="user" width="10%">
+                                <img src="./img/profile-placeholder.jpg" id="imageURL4" alt="user" width="10%">
+                                <img src="./img/profile-placeholder.jpg" id="imageURL5" alt="user" width="10%">
+                                <img src="./img/profile-placeholder.jpg" id="imageURL6" alt="user" width="10%">
+                                <input type="file" style="display:none" id="fileInput">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button id="extraImage" class="btn btn-primary">Upload Image </button>
+                    </div>
+                </div>
+                </div>
+                <!-- page end-->
+            </section>
+        </section>
+        <!--main content end-->
+        <div class="text-right">
+            <div class="credits">
+
+                <a href="">Business
+                    Bootstrap Themes</a> by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+            </div>
+        </div>
+    </section>
+    <!-- container section end -->
+    <!-- javascripts -->
+
+    <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase-functions.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase-storage.js"></script>
+    <script src="https://widget.cloudinary.com/global/all.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- <script src="https://widget.cloudinary.com/v2.0/global/all.js"></script> -->
+
+    <!-- <script src="../../travel/assets/js/config.js"></script> -->
+    <script src="./js/addLocation.js"></script>
+    <!-- nice scroll -->
+    <script src="js/jquery.scrollTo.min.js"></script>
+    <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
+    <!--custome script for all page-->
+    <!-- <script type="text/javascript" src="assets/ckeditor/ckeditor.js"></script> -->
+    <script src="js/scripts.js"></script>
+    <script src="./js/trix.js"></script>
+
+
+
+</body>
+
+</html>

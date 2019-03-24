@@ -8048,7 +8048,7 @@ input[type=radio]:checked:before {
 	}
 
 	.header_top_bar {
-		display: none;
+		display: block;
 	}
 
 	.wrapper-tours-slider {
