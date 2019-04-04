@@ -1,0 +1,1 @@
+let userCount = document.querySelector("#userCount")

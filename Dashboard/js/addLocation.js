@@ -88,7 +88,7 @@ locationForm.addEventListener('submit', (e) => {
             price,
             location,
             decription,
-            selectedState,
+            selectedState,  
             selectedTourType,
             featuredImageUrl,
             extraImageUrl: {

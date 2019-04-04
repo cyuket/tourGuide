@@ -5,12 +5,13 @@ auth.onAuthStateChanged(user => {
    
     if (user) {
         userId = user.uid
+        // user.admin = getIdTokenResult.claims.admin
         //console.log(userId)
         user.getIdTokenResult().then(id => {
             let currentUser = firebase.auth().currentUser.email;
             let currentUserSession = sessionStorage.setItem("user", currentUser);
             let currentUserId = sessionStorage.setItem("userId", userId);
-            //user.admin = id.claims.admin;
+            user.admin = id.claims.admin;
 
             setupUi(user);
 
@@ -30,18 +31,16 @@ let signupForm = document.querySelector('#register')
 signupForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const email = signupForm['reg_email'].value
-    const password = signupForm['reg_password'].value
-    const username = signupForm['reg_username'].value
+    const password = signupForm['reg_pas    sword'].value
+    // const username = signupForm['reg_username'].value
     const firstName = signupForm['reg_firstName'].value
     const lastName = signupForm['reg_lastName'].value
 
-    // if (password == cpassword) {
-    //signup a user
+    
     auth.createUserWithEmailAndPassword(email, password)
         .then(cred => {
             return db.collection('users').doc(cred.user.uid).set({
                 email,
-                username,
                 lastName,
                 firstName,
                 userId: cred.user.uid
@@ -79,4 +78,10 @@ logout.addEventListener('click', (e) => {
     auth.signOut().then(() => {
         console.log('You are Logged Out');
     })
+})
+ // go to dashboard
+const admin = document.querySelector("#admin");
+admin.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.location.href = "./Dashboard"
 })

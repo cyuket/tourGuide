@@ -50,10 +50,11 @@
                                 <span class="show_from login" id="in" style="display:none"><i class="fa fa-user"></i>Login</span>
 
                                 <div class="form_popup from_login" tabindex="-1">
-                                    <div class="inner-form">
+                                    <div class="inner-form" >
                                         <div class="closeicon"></div>
                                         <h3>Login</h3>
-                                        <form name="loginform" id="loginform" action="#" method="post">
+                                        <form name="loginform" id="loginform" action="#" method="post"
+                                            >
                                             <p class="login-username">
                                                 <label for="user_login">Email Address</label>
                                                 <input type="email" name="log" id="user_login" class="input">
@@ -65,7 +66,7 @@
                                             <p class="login-remember">
                                                 <label><input name="rememberme" type="checkbox" id="rememberme" value="forever">
                                                     Remember Me</label>
-                                            </p>
+                                            </p>    
                                             <p class="login-submit">
                                                 <input type="submit" name="wp-submit" id="wp-submit" class="button button-primary"
                                                     value="Log In">
@@ -77,10 +78,10 @@
                                 </div>
                                 <span class="register_btn" id="in" style="display:none">Register</span>
                                 <div class="form_popup from_register" tabindex="-1">
-                                    <div class="inner-form">
+                                    <div class="inner-form" >
                                         <div class="closeicon"></div>
                                         <h3>Register</h3>
-                                        <form method="post" class="register" id="register">
+                                        <form method="post" class="register" id="register" style="overflow-y:scroll;">
                                             <p class="form-row">
                                                 <label for="reg_username">Frist Name <span class="required">*</span></label>
                                                 <input type="text" class="input" name="username" id="reg_firstName"
@@ -92,11 +93,7 @@
                                                     autocomplete="off" required>
                                             </p>
 
-                                            <p class="form-row">
-                                                <label for="reg_username">Username <span class="required">*</span></label>
-                                                <input type="text" class="input" name="username" id="reg_username"
-                                                    autocomplete="off" required>
-                                            </p>
+                                            
                                             <p class="form-row">
                                                 <label for="reg_email">Email address <span class="required">*</span></label>
                                                 <input type="email" class="input" name="email" id="reg_email" required>
@@ -115,7 +112,9 @@
                                         </form>
                                     </div>
                                 </div>
+                                <span class="" id="admin" style="display:none">Go to Dashboard</span>
                                 <span class="" id="out" style="display:none">Logout</span>
+                                
                                 <div class="background-overlay"></div>
                             </aside>
                         </div>

@@ -41,7 +41,7 @@ const setupTable = (doc) => {
 
     deleteButton.addEventListener("click", e => {
         // e.stopPropagation();
-        let id = e.target.parentElement.getAttribute("data-id");
+        let id = e.target.getAttribute("data-id");
         console.log(id)
         //find a doc on the dom
         db.collection("tourLocation")

@@ -42,7 +42,7 @@
             <a href="index.html" class="logo">Tour <span class="lite">Guide</span></a>
 
 
-           
+
         </header>
         <!--header end-->
 
@@ -65,7 +65,18 @@
                         </a>
                         <ul class="sub">
                             <li><a class="" href="./addLocation.html">Add Location</a></li>
-                            <li><a class="" href="./allLocation.html">All Locations</a></li>
+                            <li><a class="" href="allLocation.html">All Locations</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;" class="">
+                            <i class="icon_desktop"></i>
+                            <span>Bookings</span>
+                            <span class="menu-arrow arrow_carrot-right"></span>
+                        </a>
+                        <ul class="sub">
+                            <li><a class="" href="allBooking.html">All Bookings</a></li>
+
                         </ul>
                     </li>
 
@@ -97,16 +108,19 @@
                             </header>
                             <div class="panel-body">
                                 <div class="form">
-                                    <form class="form-validate form-horizontal locationForm" id="feedback_form" method="POST">
+                                    <form class="form-validate form-horizontal locationForm" id="feedback_form"
+                                        method="POST">
                                         <div class="form-group ">
-                                            <label for="cname" class="control-label col-lg-2">Tour Name <span class="required">*</span></label>
+                                            <label for="cname" class="control-label col-lg-2">Tour Name <span
+                                                    class="required">*</span></label>
                                             <div class="col-lg-10">
                                                 <input class="form-control" id="tName" name="fullname" minlength="5"
                                                     type="text" required />
                                             </div>
                                         </div>
                                         <div class="form-group ">
-                                            <label for="cemail" class="control-label col-lg-2">State<span class="required">*</span></label>
+                                            <label for="cemail" class="control-label col-lg-2">State<span
+                                                    class="required">*</span></label>
                                             <div class="col-lg-10">
 
 
@@ -125,7 +139,8 @@
                                             </div>
                                         </div>
                                         <div class="form-group ">
-                                            <label for="cemail" class="control-label col-lg-2">Tour Type<span class="required">*</span></label>
+                                            <label for="cemail" class="control-label col-lg-2">Tour Type<span
+                                                    class="required">*</span></label>
                                             <div class="col-lg-10">
 
 
@@ -146,25 +161,29 @@
                                             </div>
                                         </div>
                                         <div class="form-group ">
-                                            <label for="cname" class="control-label col-lg-2">Price <span class="required">*</span></label>
+                                            <label for="cname" class="control-label col-lg-2">Price <span
+                                                    class="required">*</span></label>
                                             <div class="col-lg-10">
                                                 <input class="form-control" id="tprice" name="subject" type="number"
                                                     required />
                                             </div>
                                         </div>
                                         <div class="form-group ">
-                                            <label for="cname" class="control-label col-lg-2">Location <span class="required">*</span></label>
+                                            <label for="cname" class="control-label col-lg-2">Location <span
+                                                    class="required">*</span></label>
                                             <div class="col-lg-10">
                                                 <input class="form-control" id="tLocation" type="text" required />
                                             </div>
                                         </div>
                                         <div class="form-group ">
-                                            <label for="ccomment" class="control-label col-lg-2">Full Description</label>
+                                            <label for="ccomment" class="control-label col-lg-2">Full
+                                                Description</label>
                                             <div class="col-lg-10">
 
                                                 <!-- <textarea class="form-control ckeditor" name="editor1" rows="6" id="editor1"></textarea> -->
 
-                                                <textarea class="form-control " id="cDescription" name="comment" required></textarea>
+                                                <textarea class="form-control " id="cDescription" name="comment"
+                                                    required></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -184,7 +203,8 @@
                         <div class="panel">
                             <h3>Featured Image</h3>
                             <div class="fx-card-avatar fx-overlay-1">
-                                <img src="./img/profile-placeholder.jpg" id="imageURL0" alt="user" width="30%" height="200px">
+                                <img src="./img/profile-placeholder.jpg" id="imageURL0" alt="user" width="30%"
+                                    height="200px">
                                 <!-- <input type="file" style="display:none" id="fileInput"> -->
                             </div>
                         </div>
@@ -226,7 +246,7 @@
     </section>
     <!-- container section end -->
     <!-- javascripts -->
-    
+
     <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase-firestore.js"></script>

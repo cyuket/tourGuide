@@ -1,6 +1,6 @@
 let tours;
 
-
+const adminLink = document.querySelectorAll('#admin');
 const loggedOutLink = document.querySelectorAll('#out');
 const loggedInLink = document.querySelectorAll('#in')
 //const adminLink = document.querySelectorAll('#admin')
@@ -10,9 +10,9 @@ let cy = (data) => {
 const setupUi = (user) => {
 
     if (user) {
-        //   if (user.admin) {
-        //     adminLink.forEach(item => item.style.display = "block");
-        //   }
+          if (user.admin) {
+            adminLink.forEach(item => item.style.display = "inline");
+          }
 
         loggedInLink.forEach(item => item.style.display = 'none');
         loggedOutLink.forEach(item => item.style.display = 'inline')

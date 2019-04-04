@@ -34,7 +34,7 @@ let priceAmount
 let paystackEmail
 let tourName
 let usersId
-console.log(id)
+// console.log(id)
 
 db.collection('tourLocation').doc(id).onSnapshot(snapshot => {
 
@@ -90,12 +90,12 @@ const setupDetail = (data) => {
     days.innerHTML = `${data.days} DAYS`;
     category.innerHTML = data.selectedTourType;
     description.innerHTML = data.decription
-   
+
     breadName.innerHTML = data.tourName
     var string = numeral(data.price).format('0,0');
     priceAmount = data.price * 100;
     tourName = data.tourName
-     bprice.innerHTML = string
+    bprice.innerHTML = string
 
 }
 // popular tour section
@@ -105,11 +105,11 @@ const displayPopular = (data) => {
     //console.log(tours)
     let html = ``
     if (data.length >= 4) {
-    for (let i = 0; i < 3; i++) {
-        let id = data[i].id
-        const detail = data[i].data();
-        let string = numeral(detail.price).format('0,0');
-        const div = `<li class="item-tour col-md-4 col-sm-6 product">
+        for (let i = 0; i < 3; i++) {
+            let id = data[i].id
+            const detail = data[i].data();
+            let string = numeral(detail.price).format('0,0');
+            const div = `<li class="item-tour col-md-4 col-sm-6 product">
 											<div class="item_border item-product">
 												<div class="post_images">
 													<a href="./single-tour.html?${id}">
@@ -141,8 +141,8 @@ const displayPopular = (data) => {
 												</div>
 											</div>
 										</li>`
-        html += div
-    }
+            html += div
+        }
     } else {
         data.forEach(data => {
             let id = data.id
@@ -183,7 +183,7 @@ const displayPopular = (data) => {
             html += div
         })
     }
-    
+
 
     relatedTour.innerHTML = html;
 }
@@ -272,6 +272,8 @@ db.collection('reviews').where("id", "==", id).onSnapshot(snapshot => {
     console.log(err.message)
 });
 const body = jQuery('body');
+
+// booking
 const tourBookingForm = document.querySelector("#tourBookingForm");
 tourBookingForm.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -285,6 +287,15 @@ tourBookingForm.addEventListener("submit", (e) => {
     const date_book = tourBookingForm['date_book'].value
     let userId = sessionStorage.getItem("userId");
     usersId = userId
+    let status = "Pending"
+    var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz987654321";
+    var string_length = 11;
+    var randomstring = '';
+    for (var i = 0; i < string_length; i++) {
+        var rnum = Math.floor(Math.random() * chars.length);
+        randomstring += chars.substring(rnum, rnum + 1);
+    }
+
     if (userId) {
 
         //console.log(date_book)
@@ -311,7 +322,9 @@ tourBookingForm.addEventListener("submit", (e) => {
                         date_book,
                         userId,
                         id,
-                        tourName
+                        tourName,
+                        status,
+                        ticketId: randomstring
                     })
                     .then(() => {
                         textBooked.innerHTML = `<h4> You Have Made Reservation</h4>`
@@ -378,15 +391,17 @@ tourBookingForm.addEventListener("submit", (e) => {
                     callback: function (response) {
 
                         db.collection('bookings').doc().set({
-                                first_name,
-                                last_name,
-                                paystackEmail,
-                                last_name,
-                                phone,
-                                date_book,
-                                userId,
-                                id,
-                                tourName
+                            first_name,
+                            last_name,
+                            paystackEmail,
+                            last_name,
+                            phone,
+                            date_book,
+                            userId,
+                            id,
+                            tourName,
+                            status,
+                            ticketId: randomstring
                             })
                             .then(() => {
                                 textBooked.innerHTML = `<h4> You Have Made Reservation</h4>`
@@ -441,15 +456,17 @@ tourBookingForm.addEventListener("submit", (e) => {
                 callback: function (response) {
 
                     db.collection('bookings').doc().set({
-                            first_name,
-                            last_name,
-                            paystackEmail,
-                            last_name,
-                            phone,
-                            date_book,
-                            userId,
-                            id,
-                            tourName
+                        first_name,
+                        last_name,
+                        paystackEmail,
+                        last_name,
+                        phone,
+                        date_book,
+                        userId,
+                        id,
+                        tourName,
+                        status,
+                        ticketId: randomstring
                         })
                         .then(() => {
                             textBooked.innerHTML = `<h4> You Have Made Reservation</h4>`
@@ -477,12 +494,31 @@ const setupTable = (data) => {
         let html = "";
         data.forEach(docs => {
             const detail = docs.data();
-            //console.log(detail)
-            const td = `<tr>
+            //console.log(detail)]
+            if (detail.status == "Confirmed") {
+             const td = `<tr>
                             <td><a href="./single-tour.html?${detail.id}">${detail.tourName} </a></td>
                             <td>${detail.date_book}</td>
+                            <td style="color:green;">${detail.status}</td>
                         </tr>`;
-            html += td;
+                html += td;
+            }
+            if (detail.status == "Pending") {
+                const td = `<tr>
+                            <td><a href="./single-tour.html?${detail.id}">${detail.tourName} </a></td>
+                            <td>${detail.date_book}</td>
+                            <td style="color:#ffb300;">${detail.status}</td>
+                        </tr>`;
+                html += td;
+            }
+             if (detail.status == "Declined") {
+                 const td = `<tr>
+                            <td><a href="./single-tour.html?${detail.id}">${detail.tourName} </a></td>
+                            <td>${detail.date_book}</td>
+                            <td style="color:red;">${detail.status}</td>
+                        </tr>`;
+                 html += td;
+             }
         });
         tableBody.innerHTML = html
     } else {
@@ -495,7 +531,7 @@ const setupTable = (data) => {
 let userId = sessionStorage.getItem("userId");
 
 usersId = userId
-console.log(usersId)
+// console.log(usersId)
 // console.log(usersId)
 db.collection('bookings').where("userId", "==", usersId).onSnapshot(snapshot => {
     //console.log(snapshot.docs.id);
