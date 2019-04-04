@@ -353,7 +353,7 @@ tourBookingForm.addEventListener("submit", (e) => {
         e.preventDefault();
         const email = signupForm['reg_email'].value
         const password = signupForm['reg_password'].value
-        const username = signupForm['reg_username'].value
+        
         const firstName = signupForm['reg_firstName'].value
         const lastName = signupForm['reg_lastName'].value
 
@@ -366,7 +366,6 @@ tourBookingForm.addEventListener("submit", (e) => {
                 usersId = userId
                 return db.collection('users').doc(cred.user.uid).set({
                     email,
-                    username,
                     lastName,
                     firstName,
                     userId: cred.user.uid

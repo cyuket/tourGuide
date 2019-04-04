@@ -22,7 +22,8 @@ const setupUi = (user) => {
         //toggole ui element 
         // adminLink.forEach(item => item.style.display = "block")
         loggedInLink.forEach(item => item.style.display = 'inline');
-        loggedOutLink.forEach(item => item.style.display = 'none')
+        loggedOutLink.forEach(item => item.style.display = 'none');
+        adminLink.forEach(item => item.style.display = "none");
         //adminLink.forEach(item => item.style.display = "none")
     }
 }

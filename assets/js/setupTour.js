@@ -23,7 +23,7 @@
 									<div class="post_images">
 									
 											<span class="price">₦ ${detail.price}</span>
-											<img src=${detail.featuredImageUrl} alt="Discover Brazil" style= "height: 150px; title="Discover Brazil">
+											<img src=${detail.featuredImageUrl} alt="Discover Brazil" style= "height: 150px; width:300px" title="Discover Brazil">
 									
 										
 									</div>
