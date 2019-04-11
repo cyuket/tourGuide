@@ -329,7 +329,7 @@ tourBookingForm.addEventListener("submit", (e) => {
                     .then(() => {
                         textBooked.innerHTML = `<h4> You Have Made Reservation</h4>`
                         tourBookingForm.reset();
-                        bookingDiv.style.display = 'none'
+                        // bookingDiv.style.display = 'none'
                     })
 
             },
@@ -405,7 +405,7 @@ tourBookingForm.addEventListener("submit", (e) => {
                             .then(() => {
                                 textBooked.innerHTML = `<h4> You Have Made Reservation</h4>`
                                 tourBookingForm.reset()
-                                bookingDiv.style.display = 'none'
+                                // bookingDiv.style.display = 'none'
                             })
 
                     },
@@ -470,7 +470,7 @@ tourBookingForm.addEventListener("submit", (e) => {
                         .then(() => {
                             textBooked.innerHTML = `<h4> You Have Made Reservation</h4>`
                             tourBookingForm.reset()
-                            bookingDiv.style.display = 'none'
+                            // bookingDiv.style.display = 'none'
                         })
 
                 },
@@ -521,7 +521,7 @@ const setupTable = (data) => {
         });
         tableBody.innerHTML = html
     } else {
-        bookingDiv.style.display = 'block'
+        // bookingDiv.style.display = 'block'
 
         tableBody.innerHTML = `<h5 class="center-align"> You Don't have any reservation </h5>`
     }
@@ -541,7 +541,7 @@ db.collection('bookings').where("userId", "==", usersId).onSnapshot(snapshot => 
             //console.log(snapshot.docs.id);
             let data = snapshot.docs;
             if (data.length > 0) {
-                bookingDiv.style.display = 'none'
+                // bookingDiv.style.display = 'none'
             }
 
         }, err => {
